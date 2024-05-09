@@ -139,9 +139,9 @@ clean test
 </p>
 
 ----
-## Integration with Jira ([link](https://jira.autotests.cloud/browse/HOMEWORK-1191))
+## Integration with Jira ([link](https://jira.autotests.cloud/browse/HOMEWORK-1217))
 <p align="center">  
-<a href="https://jira.autotests.cloud/browse/HOMEWORK-1191"><img src="images/screen/jira_task.png" alt="Jira" width="950"/></a>  
+<a href="https://jira.autotests.cloud/browse/HOMEWORK-1217"><img src="images/screen/jira_task.png" alt="Jira" width="950"/></a>  
 </p>
 
 ----
@@ -153,5 +153,5 @@ clean test
 ----
 ## Test execution video examples
 <p align="center">
-<img title="Browserstack Video" src="images/video/video_report.gif" width="550" height="350"  alt="video">   
+<img title="Browserstack Video" src="images/video/video_report.gif" width="600" height="600"  alt="video">   
 </p>
