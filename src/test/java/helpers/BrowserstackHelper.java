@@ -2,6 +2,7 @@ package helpers;
 
 import config.BrowserstackAuthConfig;
 import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import org.aeonbits.owner.ConfigFactory;
 
 import java.util.Base64;
@@ -37,8 +38,9 @@ public class BrowserstackHelper {
         Map<String, Object> requestBody = new HashMap<>();
         requestBody.put("data", dataBody);
 
-        return given()
-                .header("Authorization", "Basic " + Base64.getEncoder().encodeToString((browserstackConfig.userName() + ":" + browserstackConfig.accessKey()).getBytes()))
+        Response response = given()
+                .header("Authorization", "Basic " + Base64.getEncoder().encodeToString((browserstackConfig.userName()
+                        + ":" + browserstackConfig.accessKey()).getBytes()))
                 .body(requestBody)
                 .contentType(ContentType.JSON)
                 .post(url)
@@ -46,6 +48,7 @@ public class BrowserstackHelper {
                 .log().status()
                 .log().body()
                 .statusCode(200)
-                .extract().path("app_url");
+                .extract().response();
+        return response.jsonPath().getString("app_url");
     }
 }

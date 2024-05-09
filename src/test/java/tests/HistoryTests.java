@@ -56,7 +56,7 @@ public class HistoryTests extends TestBase {
 
     @Test
     @Severity(SeverityLevel.CRITICAL)
-    @DisplayName("The article isn't saved to history list if article page wasn't opened")
+    @DisplayName("The article isn't saved to history list if article's page wasn't opened")
     void emptyHistoryIfArticleWasNotOpenedTest() {
         step(format("Enter \"%s\" into search text field", VALID_TEXT_FOR_SEARCH), () ->
                 searchTabPage.enterTextToSearchField(VALID_TEXT_FOR_SEARCH));
