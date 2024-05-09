@@ -71,7 +71,7 @@
 ----
 ## Build in Jenkins ([link](https://jenkins.autotests.cloud/job/C24-egorovaa-mobiletests/))
 <p align="center">  
-<a href="https://jenkins.autotests.cloud/job/C24-egorovaa-mobiletests//"><img src="" alt="Jenkins" width="950"/></a>  
+<a href="https://jenkins.autotests.cloud/job/C24-egorovaa-mobiletests//"><img src="images/screen/jenkins.png" alt="Jenkins" width="950"/></a>  
 </p>
 
 ### **Jenkins build options:**
@@ -112,3 +112,46 @@ clean test
 -DaccessKey=${ACCESS_KEY}
 -Dcomment=${COMMENT}
 ```
+
+----
+## Allure report ([link](https://jenkins.autotests.cloud/job/C24-egorovaa-mobiletests/allure/))
+
+**Main report page**
+<p align="center">  
+<a href="https://jenkins.autotests.cloud/job/C24-egorovaa-mobiletests/allure/"><img src="images/screen/allure_report_main.png" alt="Allure Report main" width="950"/></a>  
+</p>
+
+**Test cases**
+<p align="center">  
+<a href="https://jenkins.autotests.cloud/job/C24-egorovaa-mobiletests/allure/"><img src="images/screen/allure_report_cases.png" alt="Allure Report testcases" width="950"/></a>  
+</p>
+
+
+----
+## Integration with Allure TestOps ([link](https://allure.autotests.cloud/project/4213/dashboards))
+<p align="center">  
+<a href="https://allure.autotests.cloud/project/4213/dashboards"><img src="images/screen/allure_testops_main.png" alt="Allure TestOps" width="950"/></a>  
+</p>
+
+**Automation test cases**
+<p align="center">  
+<a href="https://allure.autotests.cloud/project/4213/dashboards"><img src="images/screen/allure_testops_auto.png" alt="Allure TestOps" width="950"/></a>  
+</p>
+
+----
+## Integration with Jira ([link](https://jira.autotests.cloud/browse/HOMEWORK-1191))
+<p align="center">  
+<a href="https://jira.autotests.cloud/browse/HOMEWORK-1191"><img src="images/screen/jira_task.png" alt="Jira" width="950"/></a>  
+</p>
+
+----
+## Telegram notification with bot
+<p align="center">  
+<img src="images/screen/tg_bot_report.png" width="350"/> 
+</p>
+
+----
+## Test execution video examples
+<p align="center">
+<img title="Browserstack Video" src="images/video/video_report.gif" width="550" height="350"  alt="video">   
+</p>
