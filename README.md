@@ -53,3 +53,62 @@
 - **Rest-assured** was used for interaction with Browserstack API.
 - For remote run, a job in **Jenkins** with **Allure report** generation and sending the results to **Telegram** using a bot is implemented.
 - Integration with **Allure TestOps** and **Jira** is implemented
+
+------
+## **Examples of automated test cases:**
+**Get started tutorial**
+- ✅ Skip the tutorial by system BACK  
+- ✅ Skip the tutorial by screen button BACK  
+- ✅ Successfully passed tutorial
+
+**History feature**
+- ✅ Successfully save article to history list after open article page 
+- ✅ Checking that the article isn't saved to history list if article's page wasn't opened
+- ✅ Successfully remove article from history by swipe
+- ✅ Successfully clear all history
+- ✅ Checkin that the history wasn't clean, if user didn't agree in dialog
+
+----
+## Build in Jenkins ([link](https://jenkins.autotests.cloud/job/C24-egorovaa-mobiletests/))
+<p align="center">  
+<a href="https://jenkins.autotests.cloud/job/C24-egorovaa-mobiletests//"><img src="" alt="Jenkins" width="950"/></a>  
+</p>
+
+### **Jenkins build options:**
+
+- `USER_NAME` 
+- `ACCESS_KEY`
+- `COMMENT` (default - Android wiki api test results)
+
+----
+## Run from Terminal
+
+**Local launch with Browserstack**
+```bash
+clean test
+-DdeviceHost=browserstack
+-DuserName={userName from you browserstack account}
+-DaccessKey={accessKey from you browserstack account}
+-DdeviceName=Samsung Galaxy M52
+-DplatformVersion=11.0
+```
+more info about browserstack account and credentials [here](https://app-automate.browserstack.com/dashboard/v2/quick-start/setup-browserstack-sdk)
+
+**Local launch on emulator or real(local) device**
+```bash
+clean test
+-DdeviceHost=emulator/local
+-Dudid=emulator-5554/EFJNFDC3S22
+```
+Appium Server, Uiautomator2 must be installed and configred before launch tests.
+After then run Appium Server by command:
+
+`appium server --base-path /wd/hub`   
+
+**Remote launch via Jenkins (only with Browserstack)**
+```bash
+clean test
+-DuserName=${USER_NAME}
+-DaccessKey=${ACCESS_KEY}
+-Dcomment=${COMMENT}
+```
