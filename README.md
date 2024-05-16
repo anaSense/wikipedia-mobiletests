@@ -21,8 +21,6 @@
 
 * <a href="#telegram">Telegram notification with bot</a>
 
-* <a href="#video">Selenoid test execution video examples</a>
-
 * <a href="#video">Test execution video examples</a>
 
 
