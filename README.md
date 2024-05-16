@@ -5,26 +5,29 @@
 
 ## **Contents:** ##
 
-* Technologies and tools
+* <a href="#tools">Technologies and tools</a>
 
-* Examples of automated test cases
+* <a href="#cases">Examples of automated test cases</a>
 
-* Build in Jenkins
+* <a href="#jenkins">Build in Jenkins</a>
 
-* Run from Terminal
+* <a href="#console">Run from Terminal</a>
 
-* Allure report
+* <a href="#allure">Allure report</a>
 
-* Integration with Allure TestOps
+* <a href="#testops">Integration with Allure TestOps</a>
 
-* Integration with Jira
+* <a href="#jira">Integration with Jira</a>
 
-* Telegram notification with bot
+* <a href="#telegram">Telegram notification with bot</a>
 
-* Test execution video examples
+* <a href="#video">Selenoid test execution video examples</a>
+
+* <a href="#video">Test execution video examples</a>
 
 
 ---------
+<a id="tools"></a>
 ## <a name="Technologies and tools">**Technologies and tools:**</a>
 
 <p align="center">
@@ -45,16 +48,17 @@
 <a href="https://www.atlassian.com/software/jira"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg" title="Jira" alt="Jira" width="40" height="40"/> </a>
 </p>
 
-- The mobile autotests was written in **Java** for **Android** application.
-- **Gradle** was used as a builder.
+- The mobile autotests were written in **Java** for **Android** application.
+- **Gradle** was used as the builder.
 - **JUnit 5**, **Appium** and **Selenide** frameworks were used as test frameworks.
 - **UIAutomator2** was used as an Android driver.
-- Tests could run on real device, emulator and has integration with **Browserstack** cloud mobile testing platform.
-- **Rest-assured** was used for interaction with Browserstack API.
-- For remote run, a job in **Jenkins** with **Allure report** generation and sending the results to **Telegram** using a bot is implemented.
-- Integration with **Allure TestOps** and **Jira** is implemented
+- Tests could run on a real device, emulator and had integration with the **Browserstack** cloud mobile testing platform.
+- **Rest-assured** was used for interaction with the Browserstack API.
+- For remote run, a job in **Jenkins** with **Allure report** generation and result sending to **Telegram** using a bot has been implemented.
+- Integration with **Allure TestOps** and **Jira** has been established.
 
 ------
+<a id="cases"></a>
 ## **Examples of automated test cases:**
 **Get started tutorial**
 - ✅ Skip the tutorial by system BACK  
@@ -62,13 +66,14 @@
 - ✅ Successfully passed tutorial
 
 **History feature**
-- ✅ Successfully save article to history list after open article page 
-- ✅ Checking that the article isn't saved to history list if article's page wasn't opened
+- ✅ Successfully save article to history list after opening the article page 
+- ✅ Checking that the article isn't saved to the history list if the article's page wasn't opened
 - ✅ Successfully remove article from history by swipe
 - ✅ Successfully clear all history
-- ✅ Checkin that the history wasn't clean, if user didn't agree in dialog
+- ✅ Checking that the history wasn't cleared, if the user didn't agree in the dialog
 
 ----
+<a id="jenkins"></a>
 ## Build in Jenkins ([link](https://jenkins.autotests.cloud/job/C24-egorovaa-mobiletests/))
 <p align="center">  
 <a href="https://jenkins.autotests.cloud/job/C24-egorovaa-mobiletests//"><img src="images/screen/jenkins.png" alt="Jenkins" width="950"/></a>  
@@ -81,6 +86,7 @@
 - `COMMENT` (default - Android wiki api test results)
 
 ----
+<a id="console"></a>
 ## Run from Terminal
 
 **Local launch with Browserstack**
@@ -92,7 +98,7 @@ clean test
 -DdeviceName=Samsung Galaxy M52
 -DplatformVersion=11.0
 ```
-more info about browserstack account and credentials [here](https://app-automate.browserstack.com/dashboard/v2/quick-start/setup-browserstack-sdk)
+more information about Browserstack account and credentials [here](https://app-automate.browserstack.com/dashboard/v2/quick-start/setup-browserstack-sdk)
 
 **Local launch on emulator or real(local) device**
 ```bash
@@ -100,8 +106,8 @@ clean test
 -DdeviceHost=emulator/local
 -Dudid=emulator-5554/EFJNFDC3S22
 ```
-Appium Server, Uiautomator2 must be installed and configred before launch tests.
-After then run Appium Server by command:
+Appium Server and Uiautomator2 must be installed and configred before launching tests.
+After that, run the Appium Server with the command:
 
 `appium server --base-path /wd/hub`   
 
@@ -114,6 +120,7 @@ clean test
 ```
 
 ----
+<a id="allure"></a>
 ## Allure report ([link](https://jenkins.autotests.cloud/job/C24-egorovaa-mobiletests/allure/))
 
 **Main report page**
@@ -128,6 +135,7 @@ clean test
 
 
 ----
+<a id="testops"></a>
 ## Integration with Allure TestOps ([link](https://allure.autotests.cloud/project/4222/dashboards))
 <p align="center">  
 <a href="https://allure.autotests.cloud/project/4222/dashboards"><img src="images/screen/allure_testops_main.png" alt="Allure TestOps" width="950"/></a>  
@@ -139,18 +147,21 @@ clean test
 </p>
 
 ----
+<a id="jira"></a>
 ## Integration with Jira ([link](https://jira.autotests.cloud/browse/HOMEWORK-1217))
 <p align="center">  
 <a href="https://jira.autotests.cloud/browse/HOMEWORK-1217"><img src="images/screen/jira_task.png" alt="Jira" width="950"/></a>  
 </p>
 
 ----
+<a id="telegram"></a>
 ## Telegram notification with bot
 <p align="center">  
 <img src="images/screen/tg_bot_report.png" width="350"/> 
 </p>
 
 ----
+<a id="video"></a>
 ## Test execution video examples
 <p align="center">
 <img title="Browserstack Video" src="images/video/video_report.gif" width="600" height="600"  alt="video">   
