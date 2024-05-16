@@ -19,7 +19,15 @@ public class BrowserstackHelper {
     public static String videoUrl(String sessionId) {
         String url = String.format("https://api.browserstack.com/app-automate/sessions/%s.json", sessionId);
 
-        return given().auth().basic(browserstackConfig.userName(), browserstackConfig.accessKey()).get(url).then().log().status().log().body().statusCode(200).extract().path("automation_session.video_url");
+        return given()
+                .auth()
+                .basic(browserstackConfig.userName(), browserstackConfig.accessKey())
+                .get(url)
+                .then()
+                .log().status()
+                .log().body()
+                .statusCode(200)
+                .extract().path("automation_session.video_url");
     }
 
     public static String uploadApp() {
@@ -30,7 +38,16 @@ public class BrowserstackHelper {
         Map<String, Object> requestBody = new HashMap<>();
         requestBody.put("data", dataBody);
 
-        Response response = given().header("Authorization", "Basic " + Base64.getEncoder().encodeToString((browserstackConfig.userName() + ":" + browserstackConfig.accessKey()).getBytes())).body(requestBody).contentType(ContentType.JSON).post(url).then().log().status().log().body().statusCode(200).extract().response();
+        Response response = given()
+                .header("Authorization", "Basic " + Base64.getEncoder().encodeToString((browserstackConfig.userName()
+                        + ":" + browserstackConfig.accessKey()).getBytes()))
+                .body(requestBody).contentType(ContentType.JSON)
+                .post(url)
+                .then()
+                .log().status()
+                .log().body()
+                .statusCode(200)
+                .extract().response();
         return response.jsonPath().getString("app_url");
     }
 }

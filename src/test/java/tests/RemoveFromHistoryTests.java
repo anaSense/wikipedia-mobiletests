@@ -43,8 +43,10 @@ public class RemoveFromHistoryTests extends TestBase {
             searchTabPage.checkListOfTitlesIsNotNull();
             return searchTabPage.getSizeOfHistoryList();
         });
-        step("Delete item by swipe", () -> SwipeHelper.horizontalSwipeByItemCoordinates(searchTabPage.getCoordinatedOfFirstItemInHistoryList()));
-        step("Check that the history list size decreased by 1 item", () -> assertThat(searchTabPage.getSizeOfHistoryList()).isEqualTo(countOfItem - 1));
+        step("Delete item by swipe", () ->
+                SwipeHelper.horizontalSwipeByItemCoordinates(searchTabPage.getCoordinatedOfFirstItemInHistoryList()));
+        step("Check that the history list size decreased by 1 item", () ->
+                assertThat(searchTabPage.getSizeOfHistoryList()).isEqualTo(countOfItem - 1));
     }
 
     @Test
@@ -67,6 +69,7 @@ public class RemoveFromHistoryTests extends TestBase {
         });
         step("Click on the clear all history button", searchTabPage::clickToClearAllHistoryButton);
         step("Click NO button in widget", widgetComponent::clickNoButton);
-        step("Check that the size of the history list hasn't changed", () -> assertThat(searchTabPage.getSizeOfHistoryList()).isEqualTo(countOfItem));
+        step("Check that the size of the history list hasn't changed", () ->
+                assertThat(searchTabPage.getSizeOfHistoryList()).isEqualTo(countOfItem));
     }
 }

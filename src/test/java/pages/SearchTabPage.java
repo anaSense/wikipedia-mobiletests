@@ -18,7 +18,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 
 public class SearchTabPage {
-    SelenideElement searchCard = $(accessibilityId("Search Wikipedia")), searchTextField = $(id("org.wikipedia.alpha:id/search_src_text")), historyEmptyTitle = $(id("org.wikipedia.alpha:id/history_empty_title")), firstItemFromList = $(id("org.wikipedia.alpha:id/page_list_item_container")), clearAllHistoryButton = $(id("org.wikipedia.alpha:id/history_delete"));
+    SelenideElement searchCard = $(accessibilityId("Search Wikipedia")),
+            searchTextField = $(id("org.wikipedia.alpha:id/search_src_text")),
+            historyEmptyTitle = $(id("org.wikipedia.alpha:id/history_empty_title")),
+            firstItemFromList = $(id("org.wikipedia.alpha:id/page_list_item_container")),
+            clearAllHistoryButton = $(id("org.wikipedia.alpha:id/history_delete"));
     ElementsCollection listOfTitles = $$(By.id("org.wikipedia.alpha:id/page_list_item_title"));
 
     public SearchTabPage enterTextToSearchField(String text) {

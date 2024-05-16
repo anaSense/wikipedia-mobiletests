@@ -20,7 +20,12 @@ public class SwipeHelper {
         int endX = (int) (size.getWidth() * 0.3);
         int endY = startY;
         PointerInput finger1 = new PointerInput(PointerInput.Kind.TOUCH, "finger1");
-        Sequence sequence = new Sequence(finger1, 1).addAction(finger1.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), startX, startY)).addAction(finger1.createPointerDown(PointerInput.MouseButton.LEFT.asArg())).addAction(new Pause(finger1, Duration.ofMillis(200))).addAction(finger1.createPointerMove(Duration.ofMillis(100), PointerInput.Origin.viewport(), endX, endY)).addAction(finger1.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+        Sequence sequence = new Sequence(finger1, 1)
+                .addAction(finger1.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), startX, startY))
+                .addAction(finger1.createPointerDown(PointerInput.MouseButton.LEFT.asArg()))
+                .addAction(new Pause(finger1, Duration.ofMillis(200)))
+                .addAction(finger1.createPointerMove(Duration.ofMillis(100), PointerInput.Origin.viewport(), endX, endY))
+                .addAction(finger1.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
         driver.perform(Collections.singletonList(sequence));
     }
 }

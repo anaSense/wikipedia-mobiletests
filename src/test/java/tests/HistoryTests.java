@@ -45,14 +45,16 @@ public class HistoryTests extends TestBase {
             toolbarComponent.clickBackButton();
             searchTabPage.checkTheTitleOfSearchTabIsShown();
         });
-        step("Check that the previously opened article was saved first " + "in the history list ", () -> searchTabPage.checkListOfTitlesIsNotNull().checkIsOpenArticleSaveToHistory(choseResultText));
+        step("Check that the previously opened article was saved first " + "in the history list ", () ->
+                searchTabPage.checkListOfTitlesIsNotNull().checkIsOpenArticleSaveToHistory(choseResultText));
     }
 
     @Test
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("The article isn't saved to the history list if article's page wasn't opened")
     void emptyHistoryIfArticleWasNotOpenedTest() {
-        step(format("Enter \"%s\" into search text field", VALID_TEXT_FOR_SEARCH), () -> searchTabPage.enterTextToSearchField(VALID_TEXT_FOR_SEARCH));
+        step(format("Enter \"%s\" into search text field", VALID_TEXT_FOR_SEARCH), () ->
+                searchTabPage.enterTextToSearchField(VALID_TEXT_FOR_SEARCH));
         step("Return to the search tab and check the page title", () -> {
             toolbarComponent.clickBackButton();
             searchTabPage.checkTheTitleOfSearchTabIsShown();
