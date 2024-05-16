@@ -25,7 +25,7 @@ public class HistoryTests extends TestBase {
 
     @BeforeEach
     void setUp() {
-        step("Skip tutorial flow", Selenide::back);
+        step("Skip tutorial flow", () -> Selenide.back());
         step("Click on the search tab", () -> bottomBarComponent.clickToTabByText(SEARCH_TAB));
     }
 
@@ -59,6 +59,7 @@ public class HistoryTests extends TestBase {
             toolbarComponent.clickBackButton();
             searchTabPage.checkTheTitleOfSearchTabIsShown();
         });
-        step("Check that there isn't any article in the search history", searchTabPage::checkTheHistoryIsEmpty);
+        step("Check that there isn't any article in the search history", () ->
+                searchTabPage.checkTheHistoryIsEmpty());
     }
 }

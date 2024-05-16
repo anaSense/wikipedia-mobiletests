@@ -27,7 +27,7 @@ public class RemoveFromHistoryTests extends TestBase {
 
     @BeforeEach
     void setUp() {
-        step("Skip tutorial flow", Selenide::back);
+        step("Skip tutorial flow", () -> Selenide.back());
         step("Click on the search tab", () -> bottomBarComponent.clickToTabByText(SEARCH_TAB));
         step("Add article element to history", () -> {
             searchTabPage.enterTextToSearchField(VALID_TEXT_FOR_SEARCH).checkListOfTitlesIsNotNull().clickToTheFirstElement();
@@ -53,10 +53,10 @@ public class RemoveFromHistoryTests extends TestBase {
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Successfully clear all history")
     void successfullyClearHistory() {
-        step("Check that history list is not empty", searchTabPage::checkListOfTitlesIsNotNull);
-        step("Click on the clear all history button", searchTabPage::clickToClearAllHistoryButton);
-        step("Click YES button in widget", widgetComponent::clickYesButton);
-        step("Check that history list is empty", searchTabPage::checkTheHistoryIsEmpty);
+        step("Check that history list is not empty", () -> searchTabPage.checkListOfTitlesIsNotNull());
+        step("Click on the clear all history button", () -> searchTabPage.clickToClearAllHistoryButton());
+        step("Click YES button in widget", () -> widgetComponent.clickYesButton());
+        step("Check that history list is empty", () -> searchTabPage.checkTheHistoryIsEmpty());
     }
 
     @Test
@@ -67,8 +67,8 @@ public class RemoveFromHistoryTests extends TestBase {
             searchTabPage.checkListOfTitlesIsNotNull();
             return searchTabPage.getSizeOfHistoryList();
         });
-        step("Click on the clear all history button", searchTabPage::clickToClearAllHistoryButton);
-        step("Click NO button in widget", widgetComponent::clickNoButton);
+        step("Click on the clear all history button", () -> searchTabPage.clickToClearAllHistoryButton());
+        step("Click NO button in widget", () -> widgetComponent.clickNoButton());
         step("Check that the size of the history list hasn't changed", () ->
                 assertThat(searchTabPage.getSizeOfHistoryList()).isEqualTo(countOfItem));
     }
