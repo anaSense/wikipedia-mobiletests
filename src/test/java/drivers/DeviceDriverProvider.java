@@ -31,12 +31,7 @@ public class DeviceDriverProvider implements WebDriverProvider {
     public WebDriver createDriver(@Nonnull Capabilities capabilities) {
         UiAutomator2Options options = new UiAutomator2Options();
 
-        options.setAutomationName(ANDROID_UIAUTOMATOR2)
-                .setPlatformName(ANDROID)
-                .setUdid(deviceConfig.udid())
-                .setApp(getAppPath())
-                .setAppPackage("org.wikipedia.alpha")
-                .setAppActivity("org.wikipedia.main.MainActivity");
+        options.setAutomationName(ANDROID_UIAUTOMATOR2).setPlatformName(ANDROID).setUdid(deviceConfig.udid()).setApp(getAppPath()).setAppPackage("org.wikipedia.alpha").setAppActivity("org.wikipedia.main.MainActivity");
         return new AndroidDriver(getAppiumServerUrl(), options);
     }
 
@@ -53,7 +48,7 @@ public class DeviceDriverProvider implements WebDriverProvider {
         String appPath = "src/test/resources/apps/" + APP_NAME;
 
         File app = new File(appPath);
-        if(!app.exists()) {
+        if (!app.exists()) {
             try (InputStream in = new URL(appUrl).openStream()) {
                 copyInputStreamToFile(in, app);
             } catch (IOException e) {

@@ -7,6 +7,7 @@ import static java.lang.String.format;
 
 public class ToolbarComponent {
     String backButtonByDesc = "UiSelector().description(\"%s\")";
+
     public ToolbarComponent clickBackButton() {
         $(AppiumBy.androidUIAutomator(format(backButtonByDesc, "Navigate up"))).click();
         return this;

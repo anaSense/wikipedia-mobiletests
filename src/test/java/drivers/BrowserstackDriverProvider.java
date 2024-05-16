@@ -37,8 +37,7 @@ public class BrowserstackDriverProvider implements WebDriverProvider {
         caps.setCapability("appium:name", "mobile_tests_wiki");
 
         try {
-            return new AndroidDriver(new URL(String.format("https://%s:%s@hub.browserstack.com/wd/hub",
-                    browserstackAuthConfig.userName() , browserstackAuthConfig.accessKey())), caps);
+            return new AndroidDriver(new URL(String.format("https://%s:%s@hub.browserstack.com/wd/hub", browserstackAuthConfig.userName(), browserstackAuthConfig.accessKey())), caps);
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }

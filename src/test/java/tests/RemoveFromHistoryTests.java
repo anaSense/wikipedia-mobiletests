@@ -27,16 +27,11 @@ public class RemoveFromHistoryTests extends TestBase {
 
     @BeforeEach
     void setUp() {
-        step("Skip tutorial flow",
-                Selenide::back);
-        step("Click to search tab", () ->
-                bottomBarComponent.clickToTabByText(SEARCH_TAB));
+        step("Skip tutorial flow", Selenide::back);
+        step("Click on the search tab", () -> bottomBarComponent.clickToTabByText(SEARCH_TAB));
         step("Add article element to history", () -> {
-            searchTabPage.enterTextToSearchField(VALID_TEXT_FOR_SEARCH)
-                    .checkListOfTitlesIsNotNull()
-                    .clickToTheFirstElement();
-            toolbarComponent.clickBackButton()
-                    .clickBackButton();
+            searchTabPage.enterTextToSearchField(VALID_TEXT_FOR_SEARCH).checkListOfTitlesIsNotNull().clickToTheFirstElement();
+            toolbarComponent.clickBackButton().clickBackButton();
         });
     }
 
@@ -48,40 +43,30 @@ public class RemoveFromHistoryTests extends TestBase {
             searchTabPage.checkListOfTitlesIsNotNull();
             return searchTabPage.getSizeOfHistoryList();
         });
-        step("Delete item by swipe", () ->
-            SwipeHelper.horizontalSwipeByItemCoordinates(
-                    searchTabPage.getCoordinatedOfFirstItemInHistoryList()));
-        step("Check that history list size got smaller for 1 item", () ->
-            assertThat(searchTabPage.getSizeOfHistoryList()).isEqualTo(countOfItem-1));
+        step("Delete item by swipe", () -> SwipeHelper.horizontalSwipeByItemCoordinates(searchTabPage.getCoordinatedOfFirstItemInHistoryList()));
+        step("Check that the history list size decreased by 1 item", () -> assertThat(searchTabPage.getSizeOfHistoryList()).isEqualTo(countOfItem - 1));
     }
 
     @Test
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Successfully clear all history")
     void successfullyClearHistory() {
-        step("Check that history list is not empty",
-                searchTabPage::checkListOfTitlesIsNotNull);
-        step("Click to clear all history button",
-                searchTabPage::clickToClearAllHistoryButton);
-        step("Click YES button in widget",
-                widgetComponent::clickYesButton);
-        step("Check that history list is empty",
-                searchTabPage::checkTheHistoryIsEmpty);
+        step("Check that history list is not empty", searchTabPage::checkListOfTitlesIsNotNull);
+        step("Click on the clear all history button", searchTabPage::clickToClearAllHistoryButton);
+        step("Click YES button in widget", widgetComponent::clickYesButton);
+        step("Check that history list is empty", searchTabPage::checkTheHistoryIsEmpty);
     }
 
     @Test
     @Severity(SeverityLevel.CRITICAL)
-    @DisplayName("The history wasn't clean, if user didn't agree in dialog")
+    @DisplayName("The history wasn't cleaned if the user didn't agree in the dialog")
     void historyNotCleanIfDeclineDialog() {
-        int countOfItem = step("Check that history list is not empty",() -> {
+        int countOfItem = step("Check that history list is not empty", () -> {
             searchTabPage.checkListOfTitlesIsNotNull();
             return searchTabPage.getSizeOfHistoryList();
         });
-        step("Click to clear all history button",
-                searchTabPage::clickToClearAllHistoryButton);
-        step("Click NO button in widget",
-                widgetComponent::clickNoButton);
-        step("Check that size of history list isn't changed", () ->
-                assertThat(searchTabPage.getSizeOfHistoryList()).isEqualTo(countOfItem));
+        step("Click on the clear all history button", searchTabPage::clickToClearAllHistoryButton);
+        step("Click NO button in widget", widgetComponent::clickNoButton);
+        step("Check that the size of the history list hasn't changed", () -> assertThat(searchTabPage.getSizeOfHistoryList()).isEqualTo(countOfItem));
     }
 }

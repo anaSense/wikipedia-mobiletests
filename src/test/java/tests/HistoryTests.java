@@ -25,46 +25,38 @@ public class HistoryTests extends TestBase {
 
     @BeforeEach
     void setUp() {
-        step("Skip tutorial flow",
-                Selenide::back);
-        step("Click to search tab", () ->
-                bottomBarComponent.clickToTabByText(SEARCH_TAB));
+        step("Skip tutorial flow", Selenide::back);
+        step("Click on the search tab", () -> bottomBarComponent.clickToTabByText(SEARCH_TAB));
     }
 
     @Test
     @Severity(SeverityLevel.CRITICAL)
-    @DisplayName("Successfully save article to history list after open article page")
+    @DisplayName("Successful saving of the article to the history list after opening the article page")
     void successfullySaveArticleToHistoryTest() {
-        step(format("Enter \"%s\" into search text field", VALID_TEXT_FOR_SEARCH), () ->
-                searchTabPage.enterTextToSearchField(VALID_TEXT_FOR_SEARCH));
-        String choseResultText = step("Click to the first article in the search result", () -> {
+        step(format("Enter \"%s\" into search text field", VALID_TEXT_FOR_SEARCH), () -> searchTabPage.enterTextToSearchField(VALID_TEXT_FOR_SEARCH));
+        String choseResultText = step("Click on the first article in the search results", () -> {
             searchTabPage.checkListOfTitlesIsNotNull();
             String str = searchTabPage.getTextFromFirstResultElement();
             searchTabPage.clickToTheFirstElement();
             return str;
         });
-        step("Return to search result page",
-                toolbarComponent::clickBackButton);
-        step("Return to search tab and check the page title", () -> {
+        step("Return to search result page", toolbarComponent::clickBackButton);
+        step("Return to the search tab and check the page title", () -> {
             toolbarComponent.clickBackButton();
             searchTabPage.checkTheTitleOfSearchTabIsShown();
         });
-        step("Check that the previously opened article was saved first " +
-                "in the history list ", () -> searchTabPage.checkListOfTitlesIsNotNull()
-                .checkIsOpenArticleSaveToHistory(choseResultText));
+        step("Check that the previously opened article was saved first " + "in the history list ", () -> searchTabPage.checkListOfTitlesIsNotNull().checkIsOpenArticleSaveToHistory(choseResultText));
     }
 
     @Test
     @Severity(SeverityLevel.CRITICAL)
-    @DisplayName("The article isn't saved to history list if article's page wasn't opened")
+    @DisplayName("The article isn't saved to the history list if article's page wasn't opened")
     void emptyHistoryIfArticleWasNotOpenedTest() {
-        step(format("Enter \"%s\" into search text field", VALID_TEXT_FOR_SEARCH), () ->
-                searchTabPage.enterTextToSearchField(VALID_TEXT_FOR_SEARCH));
-        step("Return to search tab and check the page title", () -> {
+        step(format("Enter \"%s\" into search text field", VALID_TEXT_FOR_SEARCH), () -> searchTabPage.enterTextToSearchField(VALID_TEXT_FOR_SEARCH));
+        step("Return to the search tab and check the page title", () -> {
             toolbarComponent.clickBackButton();
             searchTabPage.checkTheTitleOfSearchTabIsShown();
         });
-        step("Check that isn't any article in search history",
-                searchTabPage::checkTheHistoryIsEmpty);
+        step("Check that there isn't any article in the search history", searchTabPage::checkTheHistoryIsEmpty);
     }
 }

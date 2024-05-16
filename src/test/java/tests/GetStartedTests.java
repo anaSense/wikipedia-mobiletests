@@ -9,8 +9,8 @@ import pages.GetStartedPage;
 
 import static io.qameta.allure.Allure.step;
 
-@Feature("Get started feature")
-@Story("Check skip and pass tutorial")
+@Feature("Feature get started")
+@Story("Check skipping and passing tutorial")
 @Owner("egorovaa")
 public class GetStartedTests extends TestBase {
 
@@ -21,45 +21,36 @@ public class GetStartedTests extends TestBase {
     @Severity(SeverityLevel.TRIVIAL)
     @DisplayName("Skip the tutorial by system BACK")
     void successfullySkipBySystemBack() {
-        step("Close get started screen by system button back", Selenide::back);
+        step("Close the get started screen using the system back button", Selenide::back);
         step("Check that explore tab screen is shown", exploreTabPage::checkMainPageIsShown);
     }
 
     @Test
     @Severity(SeverityLevel.NORMAL)
-    @DisplayName("Skip the tutorial by screen button BACK")
+    @DisplayName("Skip the tutorial using the screen back button")
     void successfullySkipByScreenButtonBack() {
-        step("Close get started screen by screen button back",
-                getStartedPage::clickOnSkipButton);
+        step("Close the get started screen using the screen back button", getStartedPage::clickOnSkipButton);
         step("Check that explore tab screen is shown", exploreTabPage::checkMainPageIsShown);
     }
 
     @Test
     @Severity(SeverityLevel.NORMAL)
-    @DisplayName("Successfully passed tutorial")
+    @DisplayName("Successful completion of tutorial")
     void successfullyCompleteTutorial() {
-        step("Go to the second tutorial screen by continue button",
-                getStartedPage::clickOnContinueButton);
+        step("Navigate to the second tutorial screen using the continue button", getStartedPage::clickOnContinueButton);
 
-        step("Check the title of the second screen", () ->
-            getStartedPage.checkThePageTitleIsShown("New ways to explore"));
+        step("Check the title of the second screen", () -> getStartedPage.checkThePageTitleIsShown("New ways to explore"));
 
-        step("Go to the third tutorial screen by continue button",
-                getStartedPage::clickOnContinueButton);
+        step("Navigate to the third tutorial screen using the continue button", getStartedPage::clickOnContinueButton);
 
-        step("Check the title of the third screen", () ->
-                getStartedPage.checkThePageTitleIsShown("Reading lists with sync"));
+        step("Check the title of the third screen", () -> getStartedPage.checkThePageTitleIsShown("Reading lists with sync"));
 
-        step("Go to the fourth tutorial screen by continue button",
-                getStartedPage::clickOnContinueButton);
+        step("Navigate to the fourth tutorial screen using the continue button", getStartedPage::clickOnContinueButton);
 
-        step("Check the title of the fourth screen", () ->
-                getStartedPage.checkThePageTitleIsShown("Data & Privacy"));
+        step("Check the title of the fourth screen", () -> getStartedPage.checkThePageTitleIsShown("Data & Privacy"));
 
-        step("Go to the main screen by get started button",
-                getStartedPage::clickOnGetStartedButton);
+        step("Navigate to the main screen using the get started button", getStartedPage::clickOnGetStartedButton);
 
-        step("Check that explore tab screen is shown",
-                exploreTabPage::checkMainPageIsShown);
+        step("Check that explore tab screen is shown", exploreTabPage::checkMainPageIsShown);
     }
 }
