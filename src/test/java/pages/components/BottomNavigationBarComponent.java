@@ -8,7 +8,7 @@ import static java.lang.String.format;
 public class BottomNavigationBarComponent {
     String searchTabByDesc = "UiSelector().description(\"%s\")";
 
-    public void clickToTabByText(String tab) {
+    public void clickTabByText(String tab) {
         $(AppiumBy.androidUIAutomator(format(searchTabByDesc, tab))).click();
     }
 }

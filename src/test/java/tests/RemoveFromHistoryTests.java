@@ -28,9 +28,9 @@ public class RemoveFromHistoryTests extends TestBase {
     @BeforeEach
     void setUp() {
         step("Skip tutorial flow", () -> Selenide.back());
-        step("Click on the search tab", () -> bottomBarComponent.clickToTabByText(SEARCH_TAB));
+        step("Click on the search tab", () -> bottomBarComponent.clickTabByText(SEARCH_TAB));
         step("Add article element to history", () -> {
-            searchTabPage.enterTextToSearchField(VALID_TEXT_FOR_SEARCH).checkListOfTitlesIsNotNull().clickToTheFirstElement();
+            searchTabPage.enterTextToSearchField(VALID_TEXT_FOR_SEARCH).checkListOfTitlesIsNotNull().clickToFirstElement();
             toolbarComponent.clickBackButton().clickBackButton();
         });
     }
@@ -44,7 +44,7 @@ public class RemoveFromHistoryTests extends TestBase {
             return searchTabPage.getSizeOfHistoryList();
         });
         step("Delete item by swipe", () ->
-                SwipeHelper.horizontalSwipeByItemCoordinates(searchTabPage.getCoordinatedOfFirstItemInHistoryList()));
+                SwipeHelper.horizontalSwipeByItemCoordinates(searchTabPage.getCoordinatesFirstItemInHistoryList()));
         step("Check that the history list size decreased by 1 item", () ->
                 assertThat(searchTabPage.getSizeOfHistoryList()).isEqualTo(countOfItem - 1));
     }
@@ -54,9 +54,9 @@ public class RemoveFromHistoryTests extends TestBase {
     @DisplayName("Successfully clear all history")
     void successfullyClearHistory() {
         step("Check that history list is not empty", () -> searchTabPage.checkListOfTitlesIsNotNull());
-        step("Click on the clear all history button", () -> searchTabPage.clickToClearAllHistoryButton());
+        step("Click on the clear all history button", () -> searchTabPage.clickClearAllHistoryButton());
         step("Click YES button in widget", () -> widgetComponent.clickYesButton());
-        step("Check that history list is empty", () -> searchTabPage.checkTheHistoryIsEmpty());
+        step("Check that history list is empty", () -> searchTabPage.checkHistoryIsEmpty());
     }
 
     @Test
@@ -67,7 +67,7 @@ public class RemoveFromHistoryTests extends TestBase {
             searchTabPage.checkListOfTitlesIsNotNull();
             return searchTabPage.getSizeOfHistoryList();
         });
-        step("Click on the clear all history button", () -> searchTabPage.clickToClearAllHistoryButton());
+        step("Click on the clear all history button", () -> searchTabPage.clickClearAllHistoryButton());
         step("Click NO button in widget", () -> widgetComponent.clickNoButton());
         step("Check that the size of the history list hasn't changed", () ->
                 assertThat(searchTabPage.getSizeOfHistoryList()).isEqualTo(countOfItem));

@@ -40,11 +40,11 @@ public class SearchTabPage {
         return listOfTitles.get(0).text();
     }
 
-    public void clickToTheFirstElement() {
+    public void clickToFirstElement() {
         listOfTitles.get(0).click();
     }
 
-    public void checkTheTitleOfSearchTabIsShown() {
+    public void checkTitleOfSearchTabIsShown() {
         $(accessibilityId(SEARCH_TAB)).shouldBe(visible, Duration.ofSeconds(3));
     }
 
@@ -53,11 +53,11 @@ public class SearchTabPage {
         assertThat(listOfTitles.get(0).text()).isEqualTo(titleOpenedArticle);
     }
 
-    public void checkTheHistoryIsEmpty() {
+    public void checkHistoryIsEmpty() {
         historyEmptyTitle.click();
     }
 
-    public Coordinates getCoordinatedOfFirstItemInHistoryList() {
+    public Coordinates getCoordinatesFirstItemInHistoryList() {
         return firstItemFromList.getCoordinates();
     }
 
@@ -65,7 +65,7 @@ public class SearchTabPage {
         return listOfTitles.size();
     }
 
-    public void clickToClearAllHistoryButton() {
+    public void clickClearAllHistoryButton() {
         clearAllHistoryButton.click();
     }
 }

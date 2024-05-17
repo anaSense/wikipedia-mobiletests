@@ -37,13 +37,13 @@ public class HistoryTests extends TestBase {
         String choseResultText = step("Click on the first article in the search results", () -> {
             searchTabPage.checkListOfTitlesIsNotNull();
             String str = searchTabPage.getTextFromFirstResultElement();
-            searchTabPage.clickToTheFirstElement();
+            searchTabPage.clickToFirstElement();
             return str;
         });
         step("Return to search result page", toolbarComponent::clickBackButton);
         step("Return to the search tab and check the page title", () -> {
             toolbarComponent.clickBackButton();
-            searchTabPage.checkTheTitleOfSearchTabIsShown();
+            searchTabPage.checkTitleOfSearchTabIsShown();
         });
         step("Check that the previously opened article was saved first " + "in the history list ", () ->
                 searchTabPage.checkListOfTitlesIsNotNull().checkIsOpenArticleSaveToHistory(choseResultText));
@@ -57,9 +57,9 @@ public class HistoryTests extends TestBase {
                 searchTabPage.enterTextToSearchField(VALID_TEXT_FOR_SEARCH));
         step("Return to the search tab and check the page title", () -> {
             toolbarComponent.clickBackButton();
-            searchTabPage.checkTheTitleOfSearchTabIsShown();
+            searchTabPage.checkTitleOfSearchTabIsShown();
         });
         step("Check that there isn't any article in the search history", () ->
-                searchTabPage.checkTheHistoryIsEmpty());
+                searchTabPage.checkHistoryIsEmpty());
     }
 }

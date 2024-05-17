@@ -32,7 +32,7 @@ public class GetStartedTests extends TestBase {
     @DisplayName("Skip the tutorial using the screen back button")
     void successfullySkipByScreenButtonBack() {
         step("Close the get started screen using the screen back button", () ->
-                getStartedPage.clickOnSkipButton());
+                getStartedPage.clickSkipButton());
         step("Check that explore tab screen is shown", () ->
                 exploreTabPage.checkMainPageIsShown());
     }
@@ -42,25 +42,25 @@ public class GetStartedTests extends TestBase {
     @DisplayName("Successful completion of tutorial")
     void successfullyCompleteTutorial() {
         step("Navigate to the second tutorial screen using the continue button", () ->
-                getStartedPage.clickOnContinueButton());
+                getStartedPage.clickContinueButton());
 
         step("Check the title of the second screen", () ->
-                getStartedPage.checkThePageTitleIsShown("New ways to explore"));
+                getStartedPage.checkPageTitleIsShown("New ways to explore"));
 
         step("Navigate to the third tutorial screen using the continue button", () ->
-                getStartedPage.clickOnContinueButton());
+                getStartedPage.clickContinueButton());
 
         step("Check the title of the third screen", () ->
-                getStartedPage.checkThePageTitleIsShown("Reading lists with sync"));
+                getStartedPage.checkPageTitleIsShown("Reading lists with sync"));
 
         step("Navigate to the fourth tutorial screen using the continue button", () ->
-                getStartedPage.clickOnContinueButton());
+                getStartedPage.clickContinueButton());
 
         step("Check the title of the fourth screen", () ->
-                getStartedPage.checkThePageTitleIsShown("Data & Privacy"));
+                getStartedPage.checkPageTitleIsShown("Data & Privacy"));
 
         step("Navigate to the main screen using the get started button", () ->
-                getStartedPage.clickOnGetStartedButton());
+                getStartedPage.clickGetStartedButton());
 
         step("Check that explore tab screen is shown", () ->
                 exploreTabPage.checkMainPageIsShown());

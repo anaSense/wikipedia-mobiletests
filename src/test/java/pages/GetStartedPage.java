@@ -13,19 +13,19 @@ public class GetStartedPage {
             skipButton = $(id("org.wikipedia.alpha:id/fragment_onboarding_skip_button")),
             titleTextView = $(id("org.wikipedia.alpha:id/primaryTextView"));
 
-    public void clickOnContinueButton() {
+    public void clickContinueButton() {
         continueButton.click();
     }
 
-    public void clickOnGetStartedButton() {
+    public void clickGetStartedButton() {
         getStartedButton.click();
     }
 
-    public void clickOnSkipButton() {
+    public void clickSkipButton() {
         skipButton.click();
     }
 
-    public void checkThePageTitleIsShown(String errorText) {
+    public void checkPageTitleIsShown(String errorText) {
         String titleText = titleTextView.text();
         assertThat(titleText).isEqualTo(errorText);
     }
