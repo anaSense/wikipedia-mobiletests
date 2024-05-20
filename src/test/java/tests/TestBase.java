@@ -6,6 +6,7 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import drivers.BrowserstackDriverProvider;
 import drivers.DeviceDriverProvider;
 import helpers.AttachHelper;
+import helpers.PropertyReader;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -13,9 +14,11 @@ import org.junit.jupiter.api.BeforeEach;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
-import static helpers.ConstantsHelper.*;
 
 public class TestBase {
+    private static final String BROWSERSTACK_DRIVER = "browserstack",
+            LOCAL_DRIVER = "local",
+            EMULATOR_DRIVER = "emulator";
 
     @BeforeAll
     static void beforeAll() {
@@ -25,6 +28,8 @@ public class TestBase {
         }
         Configuration.browserSize = null;
         Configuration.timeout = 30000;
+
+        PropertyReader.readPropertyFile("test_data/testData.properties");
     }
 
     @BeforeEach

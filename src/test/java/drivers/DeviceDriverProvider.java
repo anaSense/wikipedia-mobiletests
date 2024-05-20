@@ -15,8 +15,7 @@ import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import static helpers.ConstantsHelper.APP_NAME;
-import static helpers.ConstantsHelper.APP_URL;
+import static helpers.PropertyReader.constantsProperties;
 import static io.appium.java_client.remote.AutomationName.ANDROID_UIAUTOMATOR2;
 import static io.appium.java_client.remote.MobilePlatform.ANDROID;
 import static org.apache.commons.io.FileUtils.copyInputStreamToFile;
@@ -49,8 +48,8 @@ public class DeviceDriverProvider implements WebDriverProvider {
     }
 
     private String getAppPath() {
-        String appUrl = APP_URL + APP_NAME;
-        String appPath = "src/test/resources/apps/" + APP_NAME;
+        String appUrl = constantsProperties.getProperty("appUrl") + constantsProperties.getProperty("appName");
+        String appPath = "src/test/resources/apps/" + constantsProperties.getProperty("appName");
 
         File app = new File(appPath);
         if (!app.exists()) {

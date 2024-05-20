@@ -11,7 +11,7 @@ import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
-import static helpers.ConstantsHelper.SEARCH_TAB;
+import static helpers.PropertyReader.constantsProperties;
 import static io.appium.java_client.AppiumBy.accessibilityId;
 import static io.appium.java_client.AppiumBy.id;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -45,7 +45,7 @@ public class SearchTabPage {
     }
 
     public void checkTitleOfSearchTabIsShown() {
-        $(accessibilityId(SEARCH_TAB)).shouldBe(visible, Duration.ofSeconds(3));
+        $(accessibilityId(constantsProperties.getProperty("searchTab"))).shouldBe(visible, Duration.ofSeconds(3));
     }
 
 

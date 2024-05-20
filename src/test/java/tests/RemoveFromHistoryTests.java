@@ -11,8 +11,7 @@ import pages.components.BottomNavigationBarComponent;
 import pages.components.ToolbarComponent;
 import pages.components.DialogWidgetComponent;
 
-import static helpers.ConstantsHelper.SEARCH_TAB;
-import static helpers.ConstantsHelper.VALID_TEXT_FOR_SEARCH;
+import static helpers.PropertyReader.constantsProperties;
 import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -28,9 +27,9 @@ public class RemoveFromHistoryTests extends TestBase {
     @BeforeEach
     void setUp() {
         step("Skip tutorial flow", () -> Selenide.back());
-        step("Click on the search tab", () -> bottomBarComponent.clickTabByText(SEARCH_TAB));
+        step("Click on the search tab", () -> bottomBarComponent.clickTabByText(constantsProperties.getProperty("searchTab")));
         step("Add article element to history", () -> {
-            searchTabPage.enterTextToSearchField(VALID_TEXT_FOR_SEARCH).checkListOfTitlesIsNotNull().clickToFirstElement();
+            searchTabPage.enterTextToSearchField(constantsProperties.getProperty("validTextForSearch")).checkListOfTitlesIsNotNull().clickToFirstElement();
             toolbarComponent.clickBackButton().clickBackButton();
         });
     }

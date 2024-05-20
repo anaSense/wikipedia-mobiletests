@@ -9,8 +9,7 @@ import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 
-import static helpers.ConstantsHelper.APP_NAME;
-import static helpers.ConstantsHelper.APP_URL;
+import static helpers.PropertyReader.constantsProperties;
 import static io.restassured.RestAssured.given;
 
 public class BrowserstackHelper {
@@ -33,7 +32,7 @@ public class BrowserstackHelper {
     public static String uploadApp() {
         String url = "https://api-cloud.browserstack.com/app-automate/upload";
         Map<String, Object> dataBody = new HashMap<>();
-        dataBody.put("url", APP_URL + APP_NAME);
+        dataBody.put("url", constantsProperties.getProperty("appUrl") + constantsProperties.getProperty("appName"));
 
         Map<String, Object> requestBody = new HashMap<>();
         requestBody.put("data", dataBody);
